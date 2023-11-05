@@ -1,0 +1,35 @@
+Name: Deploy
+SchemaVersion: "1.0"
+
+# Optional - Set automatic triggers.
+Triggers:
+  - Type: Push
+    Branches:
+      - main
+
+# Required - Define action configurations.
+Actions:
+  Serverless_5c:
+    # Identifies the action. Do not modify this value.
+    Identifier: aws/github-actions-runner@v1.0.0
+    # Specifies the source and/or artifacts to pass to the action as input.
+    Inputs:
+      # Optional
+      Sources:
+        - WorkflowSource # This specifies that the action requires this Workflow as a source
+    # Defines the action's properties.
+    Configuration:
+      # Be aware that a new version of the action could be available on GitHub.
+      Steps:
+        - name: Deploy Serverless Framework
+          uses: serverless/github-action@v3.2.0
+          with:
+            args: -c "cd ./aws-node-http-api-project && serverless deploy"
+            entrypoint: /bin/sh
+    Compute:
+      Type: EC2
+    Environment:
+      Connections:
+        - Role: CodeCatalystWorkflowDevelopmentRole
+          Name: "208362219457"
+      Name: development

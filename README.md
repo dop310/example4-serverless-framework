@@ -7,3 +7,4 @@ This example uses CodeCatalyst to deploy a Serverless Framework application.
 * https://www.youtube.com/watch?v=k6uLJDKN6pE 
 * https://aws.amazon.com/blogs/devops/using-github-actions-with-amazon-codecatalyst/
 * https://docs.aws.amazon.com/codecatalyst/latest/userguide/integrations-github-actions.html
+* https://github.com/serverless/github-action 

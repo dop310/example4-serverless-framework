@@ -28,6 +28,7 @@ Actions:
             entrypoint: /bin/sh
     Compute:
       Type: EC2
+      Fleet: dop310
     Environment:
       Connections:
         - Role: CodeCatalystWorkflowDevelopmentRole
